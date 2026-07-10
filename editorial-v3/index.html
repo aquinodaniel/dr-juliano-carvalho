@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imersão Primeira Arrematação, Juliano Carvalho</title>
+  <meta name="description" content="Em 2 dias, aprenda a arrematar imóveis e carros em leilão com método e segurança. Imersão online ao vivo, 25 e 26 de julho.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Libre+Franklin:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/editorial/design-system.css">
+  <style>
+    /* ---- Aplicação ao conteúdo Juliano (ajustes de página; o sistema fica no design-system.css) ---- */
+
+    /* Títulos-frase longos: mantêm o peso/tracking editorial, sem caixa alta */
+    .display--sentence { text-transform: none; letter-spacing: -0.02em; line-height: 1.04; }
+
+    /* ===== HERO da versão 1 (identidade marinho/dourado) — escopado em .v1 ===== */
+    .v1 {
+      --marinho:#0E2A3B; --marinho-900:#0A1E2A; --oliva:#6B7250;
+      --dourado-grad:linear-gradient(135deg,#E4D29A 0%,#C9A24B 46%,#B68E39 100%);
+      --dourado-grad-hover:linear-gradient(135deg,#D8C48A 0%,#B68E39 55%,#A67F30 100%);
+      --dourado-suave:#D8C48A; --osso:#ECE7DD; --branco:#FFFFFF;
+      --salvia:#8A9A95; --salvia-200:#C3CEC9;
+      --font-display:'Fraunces',Georgia,serif; --font-body:'Libre Franklin',system-ui,sans-serif; --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+      --fs-label:clamp(0.72rem,0.68rem + 0.20vw,0.80rem);
+      --fs-small:clamp(0.85rem,0.82rem + 0.20vw,0.95rem);
+      --fs-body:clamp(1.00rem,0.96rem + 0.30vw,1.125rem);
+      --fs-lead:clamp(1.15rem,1.05rem + 0.60vw,1.40rem);
+      --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:48px; --sp-9:96px;
+      --container:1200px; --gutter:clamp(20px,5vw,64px);
+      /* superfície clara (Quem sou v1) */
+      --pergaminho:#ECE7DD; --tinta:#11171C; --tinta-soft:rgba(17,23,28,.70);
+      --linha:rgba(17,23,28,.12); --oliva-700:#545A3C; --radius-lg:14px;
+      --fs-h3:clamp(1.30rem,1.15rem + 0.80vw,1.65rem);
+      font-family:var(--font-body);
+    }
+    .v1 .container { width:100%; max-width:var(--container); margin-inline:auto; padding-inline:var(--gutter); }
+    .v1 .eyebrow { font-family:var(--font-mono); font-size:var(--fs-label); font-weight:500; letter-spacing:.16em; text-transform:uppercase; color:var(--salvia); margin:0; }
+    .v1 .grifo { color:#0E2A3B; background-image:linear-gradient(100deg,#F4E6B0 0%,#E3C877 30%,#C9A24B 60%,#B0862F 100%); background-repeat:no-repeat; background-size:100% 76%; background-position:0 66%; padding:.04em .16em; border-radius:2px; transform:skewX(-2deg); display:inline; -webkit-box-decoration-break:clone; box-decoration-break:clone; box-shadow:0 1px 6px rgba(201,162,75,.10); }
+    .v1 .cta { display:inline-flex; align-items:center; justify-content:center; gap:.5em; min-height:48px; padding:14px 28px; background:var(--dourado-grad); color:var(--marinho); font-family:var(--font-body); font-weight:600; font-size:var(--fs-body); letter-spacing:.01em; border:none; border-radius:8px; box-shadow:0 2px 0 rgba(20,27,48,.18); transition:background .18s ease,transform .18s ease,box-shadow .18s ease; position:relative; overflow:hidden; }
+    .v1 .cta:hover { background:var(--dourado-grad-hover); transform:translateY(-1px); box-shadow:0 6px 18px rgba(242,164,28,.22); }
+    .v1 .cta:focus-visible { outline:3px solid var(--branco); outline-offset:2px; }
+    @media (min-width:1024px) { .v1 .cta { padding:16px 36px; } }
+    .v1 .cta--sm { min-height:42px; padding:9px 18px; font-size:var(--fs-small); box-shadow:none; }
+    /* efeito unificado — brilho dourado percorrendo (idêntico em todos os CTAs) */
+    .button--offer { position:relative; overflow:hidden; }
+    .v1 .cta::after, .button--offer::after { content:""; position:absolute; top:0; left:-80%; width:55%; height:100%; pointer-events:none; z-index:1; background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.5) 50%,transparent 100%); transform:skewX(-20deg); animation:ctaSheen 5s cubic-bezier(.4,0,.2,1) 1s infinite; }
+    @keyframes ctaSheen { 0%,16%{ left:-80%; } 44%,100%{ left:150%; } }
+    @media (prefers-reduced-motion:reduce){ .v1 .cta::after, .button--offer::after { animation:none; opacity:0; } }
+    .v1 .lbl-short { display:none; }
+    .v1 .topbar { position:absolute; top:0; left:0; right:0; z-index:20; padding-block:clamp(14px,2.2vw,22px); }
+    .v1 .topbar__inner { display:flex; align-items:center; justify-content:space-between; gap:var(--sp-4); }
+    .v1 .topbar__brand { display:inline-flex; align-items:center; gap:clamp(8px,1vw,13px); min-width:0; }
+    .v1 .topbar__evento { height:clamp(52px,7.2vw,74px); width:auto; display:block; filter:drop-shadow(0 3px 10px rgba(0,0,0,.5)); }
+    .v1 .topbar__symbol { height:clamp(30px,3.4vw,40px); width:auto; }
+    .v1 .topbar__wordmark { height:clamp(13px,1.5vw,17px); width:auto; }
+    .v1 .topbar__cta { flex:none; }
+    @media (max-width:560px) { .v1 .topbar__symbol{height:30px} .v1 .topbar__wordmark{height:13px} .v1 .topbar__cta{display:none} }
+    .v1 .hero { position:relative; overflow:hidden; background:#1A4C5B; color:var(--branco); isolation:isolate; min-height:auto; --header-h:clamp(58px,15vw,74px); --hero-photo-h:clamp(300px,68vw,430px); }
+    .v1 .hero::before { content:""; position:absolute; inset:0; z-index:1; pointer-events:none; background:
+      radial-gradient(52% 62% at 72% 44%, rgba(74,126,136,.55), transparent 66%),
+      radial-gradient(38% 44% at 70% 30%, rgba(216,196,138,.12), transparent 70%),
+      radial-gradient(125% 120% at 48% 46%, transparent 40%, rgba(6,26,33,.74) 100%); }
+    .v1 .hero__grain { position:absolute; inset:0; z-index:1; pointer-events:none; opacity:.05; mix-blend-mode:overlay; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    .v1 .hero__dots { position:absolute; left:0; top:0; bottom:0; width:clamp(80px,11vw,168px); z-index:1; pointer-events:none; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='38' height='38'%3E%3Cpath d='M19 14 L23 19 L19 24 L15 19 Z' fill='%23D8C48A'/%3E%3C/svg%3E"); background-size:38px 38px; background-position:left -4px top -4px; opacity:.36; -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 48%,transparent 100%); mask-image:linear-gradient(90deg,#000 0%,#000 48%,transparent 100%); }
+    /* fumaça/névoa em movimento no fundo da hero */
+    .v1 .hero__smoke { position:absolute; inset:-14% -8%; z-index:0; pointer-events:none; opacity:.55; filter:blur(46px); mix-blend-mode:screen;
+      background:
+        radial-gradient(42% 48% at 24% 32%,rgba(126,190,200,.32),transparent 70%),
+        radial-gradient(34% 42% at 72% 60%,rgba(216,196,138,.12),transparent 68%),
+        radial-gradient(50% 54% at 50% 92%,rgba(96,158,172,.28),transparent 72%);
+      animation:heroSmoke 28s ease-in-out infinite alternate; will-change:transform; }
+    .v1 .hero__smoke::after { content:""; position:absolute; inset:0;
+      background:
+        radial-gradient(38% 42% at 62% 24%,rgba(150,205,210,.22),transparent 70%),
+        radial-gradient(32% 38% at 28% 72%,rgba(190,168,116,.10),transparent 66%);
+      animation:heroSmoke2 36s ease-in-out infinite alternate; }
+    @keyframes heroSmoke { 0%{transform:translate3d(-4%,-2%,0) scale(1.05) rotate(0deg)} 50%{transform:translate3d(3%,3%,0) scale(1.18) rotate(4deg)} 100%{transform:translate3d(6%,-2%,0) scale(1.08) rotate(-3deg)} }
+    @keyframes heroSmoke2 { 0%{transform:translate3d(5%,3%,0) scale(1.1) rotate(0deg)} 100%{transform:translate3d(-5%,-4%,0) scale(1.22) rotate(-6deg)} }
+    @media (prefers-reduced-motion:reduce){ .v1 .hero__smoke, .v1 .hero__smoke::after { animation:none!important; } }
+    .v1 .hero .container { position:relative; z-index:2; }
+    .v1 .hero__media { position:relative; width:100%; }
+    .v1 .hero__media img { width:100%; height:auto; object-fit:cover; }
+    .v1 .hero__inner { position:relative; z-index:2; display:flex; flex-direction:column; gap:var(--sp-5); padding-top:calc(var(--header-h) + var(--hero-photo-h) - clamp(80px,18vw,128px)); padding-bottom:var(--sp-9); }
+    .v1 .hero h1 { font-family:var(--font-display); font-optical-sizing:auto; font-weight:500; font-size:clamp(1.75rem,1.45rem + 1.6vw,2.45rem); line-height:1.12; letter-spacing:-.015em; color:var(--branco); max-width:min(20ch,100%); overflow-wrap:break-word; text-wrap:balance; margin:0; }
+    .v1 .hero h1 .long { display:none; }
+    .v1 .hero__sub { font-size:var(--fs-lead); line-height:1.5; color:var(--salvia-200); max-width:46ch; margin:0; }
+    .v1 .hero__sub b { font-weight:600; color:var(--branco); }
+    .v1 .hero__actions { display:flex; flex-direction:column; gap:var(--sp-3); align-items:flex-start; }
+    .v1 .hero__selo { font-family:var(--font-body); font-size:var(--fs-small); line-height:1.55; letter-spacing:.005em; color:var(--salvia-200); border-left:2px solid var(--oliva); padding-left:var(--sp-4); max-width:46ch; margin:0; }
+    .v1 .hero__selo b { color:var(--osso); font-weight:600; }
+    /* ===== HERO MOBILE — retrato recortado (sem fundo) sobre o marinho, fade só na base ===== */
+    .v1 .hero__media--desktop { display:none; }
+    .v1 .hero__media--mobile { display:block; position:absolute; top:var(--header-h); left:0; right:0; z-index:0; height:var(--hero-photo-h); margin:0; pointer-events:none; }
+    /* halo dourado atrás do retrato — foco quente vazando pela silhueta recortada */
+    .v1 .hero__media--mobile::before { content:""; position:absolute; z-index:0; left:50%; top:0; width:108%; height:70%; transform:translateX(-50%); background:radial-gradient(closest-side,rgba(216,196,138,.22),rgba(216,196,138,.06) 54%,transparent 74%); pointer-events:none; }
+    .v1 .hero__media--mobile img { position:relative; z-index:1; width:100%; height:100%; object-fit:contain; object-position:50% top; filter:drop-shadow(0 16px 26px rgba(6,18,26,.42)); }
+    /* fade só na base — dissolve o rodapé do recorte no marinho */
+    .v1 .hero__media--mobile::after { content:""; position:absolute; z-index:2; inset-inline:0; bottom:-1px; height:34%; pointer-events:none;
+      background:linear-gradient(to top,#1A4C5B 5%,rgba(26,76,91,.4) 42%,rgba(26,76,91,.1) 74%,transparent); }
+    /* losangos da lateral só no desktop */
+    @media (max-width:1023px){ .v1 .hero__dots, .v1 .topbar__evento { display:none; } }
+    /* ===== MOVIMENTO "PREGÃO AO VIVO" ===== */
+    /* escada de lances subindo atrás do Juliano — mono, translúcido, ambiente */
+    .v1 .hero__bids { position:absolute; top:var(--header-h); left:0; right:0; height:var(--hero-photo-h); z-index:0; overflow:hidden; pointer-events:none;
+      -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 72%,transparent 100%); mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 72%,transparent 100%); }
+    .v1 .hero__bids-col { position:absolute; top:0; display:flex; flex-direction:column; gap:clamp(22px,7vw,40px); animation:bidsRise 34s linear infinite; will-change:transform; }
+    .v1 .hero__bids-col--l { left:0; align-items:flex-start; padding-left:clamp(8px,4vw,30px); animation-duration:38s; }
+    .v1 .hero__bids-col--r { right:0; align-items:flex-end; text-align:right; padding-right:clamp(8px,4vw,30px); animation-duration:29s; animation-delay:-11s; }
+    .v1 .bid { display:block; font-family:var(--font-mono); font-size:clamp(.8rem,3vw,1rem); letter-spacing:.05em; color:#C9A24B; opacity:.15; white-space:nowrap; }
+    .v1 .bid--won { color:#E7CE8F; opacity:.26; letter-spacing:.12em; font-weight:500; }
+    @keyframes bidsRise { from{transform:translateY(0)} to{transform:translateY(-50%)} }
+    .v1 .hero__actions { position:relative; }
+    @media (prefers-reduced-motion:reduce){ .v1 .hero__bids-col { animation:none!important; } }
+    .v1 .hero__wave { position:absolute; left:0; right:0; bottom:-1px; width:100%; line-height:0; z-index:3; pointer-events:none; }
+    .v1 .hero__wave svg { display:block; width:100%; height:clamp(48px,7vw,104px); }
+    .v1 .hero__wave path { fill:#EFEADE; } /* emenda com a seção de passos (bege claro) */
+
+    @media (min-width:1024px) {
+      .v1 .hero { min-height:min(82vh,720px); display:flex; align-items:stretch; padding-top:clamp(64px,8vh,96px); padding-bottom:clamp(20px,3vw,40px); }
+      .v1 .hero__media--mobile { display:none; }
+      .v1 .hero__bids { display:none; }
+
+      /* duas colunas REAIS: texto (fluido) | retrato (coluna dedicada). Sem posicionamento absoluto. */
+      /* texto livre à esquerda (container centralizado); a foto NÃO compete por espaço aqui */
+      .v1 .hero .container { display:flex; align-items:center; min-height:min(82vh,720px); }
+      .v1 .hero__inner { max-width:40ch; padding-top:0; padding-bottom:0; gap:var(--sp-4); position:relative; z-index:3; }
+
+      /* retrato meio-corpo tratado: sangra até a borda direita da tela, atrás do texto, grande e inteiro */
+      .v1 .hero__media--desktop { display:block; position:absolute; top:0; left:auto; right:0; bottom:0; width:clamp(500px,48vw,820px); z-index:1; pointer-events:none; }
+      .v1 .hero__media--desktop img { display:block; width:100%; height:100%; object-fit:contain; object-position:100% 100%; }
+
+      .v1 .hero h1 { font-size:clamp(1.9rem,1.05rem + 1.7vw,2.45rem); max-width:20ch; }
+      .v1 .hero__sub { max-width:46ch; }
+      .v1 .hero h1 .short { display:none; }
+      .v1 .hero h1 .long { display:inline; }
+      .v1 .hero__actions { gap:var(--sp-4); }
+    }
+
+    /* ===== Quem sou — igual à página original (v1), escopado em .v1 ===== */
+    .v1.section { padding-block:clamp(4rem,8vw,8rem); position:relative; }
+    .v1.section--paper { background:var(--pergaminho); color:var(--tinta); position:relative; overflow:hidden; }
+    .v1.section--paper .grifo { color:var(--tinta); background:linear-gradient(transparent 10%,rgba(216,196,138,.55) 10% 88%,transparent 88%); }
+    .v1 .about__kicker { position:sticky; top:clamp(14px,3vw,26px); z-index:6; width:fit-content; margin:0 0 clamp(1.4rem,3vw,2rem); padding:.5em .95em; font-family:var(--font-mono); font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; color:var(--oliva-700); background:rgba(216,196,138,.16); border:1px solid rgba(216,196,138,.42); border-radius:999px; -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); }
+    .v1 .about__head { max-width:34ch; }
+    .v1 .about__title { font-family:var(--font-display); font-optical-sizing:auto; font-weight:500; font-size:clamp(1.75rem,1.3rem + 1.6vw,2.5rem); line-height:1.16; letter-spacing:-.01em; color:var(--tinta); margin:var(--sp-3) 0 0; max-width:none; }
+    .v1 .about__title em { font-style:italic; font-weight:inherit; }
+    @media (min-width:768px){ .v1 .about__title { white-space:nowrap; } }
+    .v1 .about__grid { display:grid; gap:clamp(2rem,5vw,3rem); margin-top:clamp(2.5rem,5vw,3.5rem); }
+    .v1 .about__portrait { position:relative; margin:0; border-radius:var(--radius-lg); overflow:hidden; border:1px solid rgba(216,196,138,.55); box-shadow:0 30px 60px -32px rgba(17,23,28,.5); max-width:380px; }
+    .v1 .about__portrait img { width:100%; height:auto; display:block; }
+    .v1 .about__portrait figcaption { position:absolute; left:0; right:0; bottom:0; padding:var(--sp-5) var(--sp-4) var(--sp-3); font-family:var(--font-mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--osso); background:linear-gradient(to top,rgba(7,20,28,.85),transparent); }
+    .v1 .about__narrative p { font-size:var(--fs-body); line-height:1.7; color:var(--tinta-soft); margin:0 0 var(--sp-4); max-width:58ch; }
+    .v1 .about__narrative p b { color:var(--tinta); font-weight:600; }
+    .v1 .about__stats { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(1rem,3vw,1.8rem); margin-top:clamp(1.8rem,3.5vw,2.4rem); padding-top:var(--sp-5); border-top:1px solid var(--linha); }
+    .v1 .about__stat-num { display:block; font-family:var(--font-display); font-optical-sizing:auto; font-weight:600; font-size:clamp(1.55rem,1.05rem + 1.7vw,2.35rem); line-height:1; letter-spacing:-.02em; font-variant-numeric:tabular-nums; color:var(--tinta); }
+    .v1 .about__stat--accent .about__stat-num { color:var(--oliva-700); }
+    .v1 .about__stat-label { margin:var(--sp-3) 0 0; font-size:var(--fs-small); line-height:1.4; color:var(--tinta-soft); }
+    .v1 .about__stat-code { margin:var(--sp-2) 0 0; font-family:var(--font-mono); font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--oliva-700); opacity:.65; }
+    @media (min-width:900px){ .v1 .about__grid { grid-template-columns:.82fr 1.18fr; gap:clamp(3rem,5vw,5rem); align-items:start; } .v1 .about__portrait { position:sticky; top:96px; } }
+    .v1 .about__wave { position:absolute; left:0; right:0; bottom:-1px; width:100%; line-height:0; z-index:2; pointer-events:none; }
+    .v1 .about__wave svg { display:block; width:100%; height:clamp(48px,7vw,104px); }
+    .v1 .about__wave path { fill:#1A4C5B; } /* emenda com o rodapé */
+
+    /* ============================================================
+       DIREÇÃO DE ARTE, alternância claro/escuro + ondas (fluxo v1).
+       Ritmo: Hero(esc) · Passos(claro) · Método(esc) · Quote(claro) ·
+       Oferta(esc) · Quem-sou(claro) · Rodapé(esc). Ondas SVG emendam.
+       ============================================================ */
+    :root {
+      --accent-gold:#D8C48A;
+      --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Onda de transição (reutilizável) — o fill é a cor da PRÓXIMA seção */
+    .wave { position:absolute; left:0; right:0; bottom:-1px; width:100%; line-height:0; z-index:4; pointer-events:none; }
+    .wave svg { display:block; width:100%; height:clamp(48px,7vw,104px); }
+    .wave--to-method path { fill:#164C5E; }
+    .wave--to-quote  path { fill:#E7E0D2; }
+    .wave--to-offer  path { fill:#123E4B; }
+    .wave--to-about  path { fill:#ECE7DD; }
+
+    /* --- Superfícies ESCURAS (petróleo vivo + brilho dourado + grão) --- */
+    .sfloat, .offer-block { position:relative; isolation:isolate; overflow:hidden; }
+    .sfloat      { background:linear-gradient(180deg,#164C5E 0%,#123E4B 100%); }
+    .offer-block { background:linear-gradient(180deg,#123E4B 0%,#164C5E 100%); }
+    .sfloat::before, .offer-block::before {
+      content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+      background:radial-gradient(64% 54% at 50% 16%, rgba(216,196,138,.14), transparent 70%);
+    }
+    .sfloat::after, .offer-block::after {
+      content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+      opacity:.05; mix-blend-mode:overlay; background-image:var(--grain);
+    }
+    .sfloat > .sfloat__wrap, .offer-block > .offer-block__inner { position:relative; z-index:1; }
+
+    /* --- Superfícies CLARAS (bege + brilho quente no topo + grão multiply) --- */
+    .steps-light, .quote-light { position:relative; isolation:isolate; overflow:hidden; color:var(--tinta); }
+    .steps-light { background:#EFEADE; }
+    .quote-light { background:#E7E0D2; }
+    .steps-light::before, .quote-light::before {
+      content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+      background:radial-gradient(72% 60% at 50% 0%, rgba(255,255,255,.55), transparent 62%);
+    }
+    .steps-light::after, .quote-light::after {
+      content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+      opacity:.045; mix-blend-mode:multiply; background-image:var(--grain);
+    }
+    .steps-light > .services-block__inner, .quote-light > .quote-block__inner { position:relative; z-index:1; }
+
+    /* Passos (claro): cards off-white, texto tinta, numeral oliva */
+    .steps-light .services-block__title { color:var(--tinta); }
+    .steps-light .accent { color:#8A6A1E; }
+    .steps-light .service-card { background:#FFFFFF; border-color:rgba(17,23,28,.07); box-shadow:0 24px 46px -30px rgba(17,23,28,.4); }
+    .steps-light .service-card:hover { border-color:rgba(216,196,138,.6); }
+    .steps-light .service-card__title { color:var(--tinta); }
+    .steps-light .service-card__copy { color:rgba(17,23,28,.6); }
+    .steps-light .service-card__icon { background:rgba(107,114,80,.12); border:1px solid rgba(107,114,80,.25); }
+    .steps-light .service-card__icon--num { color:#8A6A1E; }
+
+    /* Quote (claro): painel off-white, texto tinta, destaque oliva */
+    .quote-light .quote-panel { border:1px solid rgba(17,23,28,.1); background:linear-gradient(180deg,rgba(255,255,255,.55),rgba(255,255,255,.2)); }
+    .quote-light .quote-panel::before, .quote-light .quote-panel::after { border-color:rgba(17,23,28,.14); }
+    .quote-light .quote-panel__text { color:#1A2129; }
+    .quote-light .quote-panel__text em { color:#8A6A1E; }
+    .quote-light .quote-panel__meta { color:rgba(17,23,28,.58); }
+
+    /* Método (escuro): cards petróleo + fio dourado */
+    .sfloat__card { background:linear-gradient(180deg,#1D5A6E,#154B5C); border-color:rgba(216,196,138,.30); box-shadow:0 26px 50px -28px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.06); }
+    .sfloat__card-title { color:#F4EFE6; }
+    .sfloat__card-text  { color:rgba(216,222,213,.66); }
+
+    /* Card de oferta (escuro) em dourado/glass — CTA é o ponto mais quente */
+    .offer-card { border-color:rgba(216,196,138,.24); background:radial-gradient(circle at top,rgba(216,196,138,.10),transparent 42%),linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015)); }
+    .offer-card__eyebrow, .offer-price__label { color:var(--accent-gold); }
+    .offer-list__item::before { background:var(--accent-gold); box-shadow:0 0 0 6px rgba(216,196,138,.10); }
+    .button--offer { background:linear-gradient(135deg,#E4D29A 0%,#C9A24B 46%,#B68E39 100%); color:#0A1E2A; border-color:rgba(255,255,255,.3); }
+    .button--offer:hover { background:linear-gradient(135deg,#D8C48A 0%,#B68E39 55%,#A67F30 100%); }
+
+    /* Rodapé em marinho (não preto) */
+    .jc-footer { background:#1A4C5B; border-top-color:rgba(216,196,138,.12); }
+    /* conteúdo é longo — dispensa o min-height:100vh do sistema (evita vazio antes do rodapé) */
+    .page-shell { min-height:0; }
+    /* fallback: se sobrar viewport, o fundo geral acompanha o rodapé, não o bege do sistema */
+    html, body { background:#1A4C5B; }
+
+    /* Numeral no lugar do ícone (passos) */
+    .service-card__icon--num { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 700; color: var(--accent-gold); }
+
+    /* ---- SEÇÃO 2 · Scroll Float Cards — cores adaptadas à paleta editorial (dourado #dfc19a, superfícies pretas) ---- */
+    .sfloat { padding: 100px 24px; overflow: hidden; } /* cor definida na direção de arte */
+    .sfloat__wrap { max-width: 1100px; margin: 0 auto; }
+    .sfloat__intro { text-align: center; margin-bottom: 64px; }
+    .sfloat__title { margin: 0 0 20px; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: var(--display-weight); letter-spacing: -0.04em; line-height: 1.06; text-transform: uppercase; color: var(--ink-on-dark); }
+    .sfloat__accent { color: var(--accent-gold); }
+    .sfloat__desc { max-width: 600px; margin: 0 auto; color: rgba(255,255,255,0.5); font-size: 1.02rem; line-height: 1.85; }
+    .sfloat__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+    .sfloat__card { padding: 36px 30px; border: 1px solid transparent; border-radius: 24px; will-change: transform; } /* cor/borda/sombra na direção de arte */
+    .sfloat__icon { width: 54px; height: 54px; margin-bottom: 24px; color: var(--accent-gold); }
+    .sfloat__icon svg { width: 100%; height: 100%; }
+    .sfloat__card-title { margin: 0 0 12px; color: #f4f4f2; font-size: 1.3rem; font-weight: 500; line-height: 1.25; }
+    .sfloat__card-text { margin: 0; color: rgba(255,255,255,0.45); font-size: 0.96rem; line-height: 1.75; }
+    .sfloat__card--center { margin-top: 48px; opacity: 0; transform: translateY(32px); transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1); }
+    .sfloat__card--center.sfloat--visible { opacity: 1; transform: translateY(48px); }
+    @media (max-width: 900px) {
+      .sfloat__grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .sfloat__card--center { margin-top: 0; }
+      .sfloat__card--center.sfloat--visible { transform: translateY(0); }
+      .sfloat__card[data-sfloat-tx] { will-change: auto; }
+    }
+    @media (max-width: 720px) { .sfloat { padding: 64px 16px; } }
+    @media (prefers-reduced-motion: reduce) {
+      .sfloat__card { transform: none !important; }
+      .sfloat__card--center { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* Grifo dourado no destaque do quote / títulos */
+    .accent { color: var(--accent-gold); font-style: italic; }
+
+    /* Card de oferta — título pode quebrar em 2 linhas */
+    .offer-card__title { white-space: normal; }
+    .offer-meta { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; text-align: left; }
+    .offer-meta li { display: grid; grid-template-columns: 92px 1fr; gap: 14px; color: rgba(255,255,255,0.7); font-size: 0.92rem; line-height: 1.5; }
+    .offer-meta li b { color: rgba(255,255,255,0.5); font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.72rem; padding-top: 2px; }
+
+    /* Rodapé de verificabilidade */
+    .jc-footer { padding: 56px 48px; border-top: 1px solid rgba(216,196,138,0.12); } /* cor (marinho) na direção de arte */
+    .jc-footer__inner { width: min(100%, var(--max-width)); margin: 0 auto; display: grid; gap: 20px; justify-items: center; text-align: center; }
+    .jc-footer__brand { height: 22px; width: auto; opacity: 0.9; }
+    .jc-footer__logo { height: clamp(80px,11vw,116px); width: auto; opacity: 0.95; filter: drop-shadow(0 6px 18px rgba(0,0,0,0.45)); }
+    .jc-footer__rule { width: 52px; height: 1px; background: linear-gradient(90deg,transparent,rgba(216,196,138,0.6),transparent); }
+    .jc-footer__note { margin: 0 auto; max-width: 720px; color: rgba(255,255,255,0.4); font-size: 0.82rem; line-height: 1.7; }
+    .jc-footer__legal { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 26px; color: rgba(255,255,255,0.5); font-size: 0.78rem; }
+
+    @media (max-width: 720px) {
+      .offer-meta li { grid-template-columns: 1fr; gap: 2px; }
+      .jc-footer { padding: 40px 16px; }
+    }
+
+    /* ============================================================
+       V3 · REESTRUTURAÇÃO CRO, vender o sonho da casa própria
+       (leilão = mecanismo, não o produto). Reaproveita as superfícies
+       claras/escuras e as ondas; só troca conteúdo e componentes.
+       ============================================================ */
+
+    /* Microcopy sob o CTA (âncora de preço/escassez sem gritar) */
+    .cta-note { margin:.65rem 0 0; font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:.72rem; letter-spacing:.07em; text-transform:uppercase; color:rgba(255,255,255,.55); }
+    .steps-light .cta-note, .quote-light .cta-note { color:rgba(17,23,28,.5); }
+
+    /* --- Quebra de crença (editorial, superfície clara, muito branco) --- */
+    .belief { max-width:760px; margin:0 auto; text-align:center; }
+    .belief__kicker { font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:#8A6A1E; margin:0 0 1.4rem; }
+    .belief__title { font-family:'Fraunces',Georgia,serif; font-weight:500; font-size:clamp(1.75rem,1.2rem + 2.2vw,2.85rem); line-height:1.12; letter-spacing:-.02em; color:#11171C; margin:0 0 clamp(1.8rem,4.5vw,2.6rem); }
+    .belief__title .accent { color:#8A6A1E; font-style:italic; }
+    .belief__lines { display:grid; gap:1rem; max-width:540px; margin:0 auto; }
+    .belief__line { font-family:'Libre Franklin',system-ui,sans-serif; font-size:clamp(1.05rem,.98rem + .5vw,1.28rem); line-height:1.5; color:rgba(17,23,28,.72); margin:0; }
+    .belief__turn { margin:clamp(2rem,4.5vw,2.8rem) auto 0; max-width:22ch; font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:clamp(1.35rem,1rem + 1.5vw,2rem); line-height:1.28; color:#11171C; }
+    .belief__turn b { font-style:normal; font-weight:600; }
+
+    /* --- Lista de benefícios ✔ (transformação, escaneável) --- */
+    .gains { max-width:820px; margin:0 auto; }
+    .gains__head { text-align:center; margin:0 0 clamp(2.2rem,5vw,3rem); }
+    .gains__kicker { font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:#8A6A1E; margin:0 0 1rem; }
+    .gains__title { font-family:'Fraunces',Georgia,serif; font-weight:500; font-size:clamp(1.7rem,1.2rem + 1.8vw,2.5rem); line-height:1.14; letter-spacing:-.015em; color:#11171C; margin:0 auto; max-width:24ch; }
+    .gains__title em { font-style:italic; color:#8A6A1E; }
+    .gains__list { list-style:none; margin:0 0 clamp(2.4rem,5vw,3.2rem); padding:0; display:grid; gap:0; }
+    .gains__item { display:grid; grid-template-columns:auto 1fr; gap:clamp(.9rem,2.4vw,1.4rem); align-items:center; padding:clamp(1rem,2.6vw,1.35rem) 0; border-bottom:1px solid rgba(17,23,28,.1); }
+    .gains__item:last-child { border-bottom:none; }
+    .gains__check { width:34px; height:34px; flex:none; display:grid; place-items:center; border-radius:50%; background:rgba(216,196,138,.18); border:1px solid rgba(216,196,138,.6); color:#8A6A1E; }
+    .gains__check svg { width:17px; height:17px; }
+    .gains__text { font-family:'Libre Franklin',system-ui,sans-serif; font-size:clamp(1.02rem,.96rem + .4vw,1.2rem); line-height:1.45; color:#11171C; margin:0; }
+    .gains__text b { font-weight:600; }
+    .gains__cta { text-align:center; }
+
+    /* ============================================================
+       CARD DE OFERTA v2, foco em conversão · motivo de leilão "o lote/o lance"
+       Zona esquerda = VALOR · zona direita = FECHAMENTO (ponto quente)
+       ============================================================ */
+    .offer2 { position:relative; width:min(100%,920px); margin:0 auto; border:1px solid rgba(216,196,138,.22); border-radius:24px; overflow:hidden; background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.015)); box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 34px 80px -34px rgba(0,0,0,.6); -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px); }
+    .offer2::before { content:""; position:absolute; inset:0 0 auto 0; height:2px; background:linear-gradient(90deg,transparent,rgba(216,196,138,.6),transparent); pointer-events:none; z-index:2; }
+    .offer2__grid { display:grid; grid-template-columns:1.12fr .88fr; }
+    .offer2__value { padding:clamp(30px,3.4vw,52px); text-align:left; }
+    .offer2__close { position:relative; padding:clamp(30px,3.4vw,52px); background:radial-gradient(130% 90% at 50% 0%,rgba(216,196,138,.16),transparent 60%),rgba(7,26,33,.55); border-left:1px solid rgba(216,196,138,.18); display:flex; flex-direction:column; text-align:left; }
+
+    .offer2__lote { display:block; margin:0 0 1rem; font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:.66rem; letter-spacing:.24em; text-transform:uppercase; color:rgba(216,196,138,.7); }
+    .offer2__title { margin:0; font-family:'Fraunces',Georgia,serif; font-weight:500; font-size:clamp(1.55rem,1.15rem + 1.4vw,2.15rem); line-height:1.08; letter-spacing:-.02em; color:#F4EFE6; text-transform:none; white-space:normal; }
+    .offer2__lead { margin:.95rem 0 0; font-size:1rem; line-height:1.55; color:rgba(216,222,213,.74); max-width:40ch; }
+    .offer2__lead b { color:#F4EFE6; font-weight:600; }
+    .offer2__list { list-style:none; margin:1.7rem 0 0; padding:0; display:grid; gap:1rem; }
+    .offer2__list li { display:grid; grid-template-columns:22px 1fr; gap:.7rem; align-items:start; font-size:.98rem; line-height:1.42; color:rgba(255,255,255,.86); }
+    .offer2__list b { color:#F4EFE6; font-weight:600; }
+    .offer2__check { width:22px; height:22px; margin-top:1px; color:var(--accent-gold); flex:none; }
+
+    .offer2__close-label { margin:0; font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:.64rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(216,196,138,.85); }
+    .offer2__price { display:flex; align-items:flex-start; gap:.12em; margin:.55rem 0 0; color:#FBF7EE; font-family:'IBM Plex Mono',ui-monospace,monospace; line-height:.88; }
+    .offer2__price-cur { font-size:1.35rem; font-weight:500; margin-top:.55em; color:rgba(216,196,138,.9); }
+    .offer2__price-num { font-size:clamp(3.4rem,3rem + 2.2vw,4.6rem); font-weight:600; letter-spacing:-.02em; }
+    .offer2__anchor { margin:.5rem 0 0; font-size:.86rem; line-height:1.5; color:rgba(216,222,213,.62); }
+    .offer2__cta { margin-top:1.5rem; width:100%; display:inline-flex; align-items:center; justify-content:center; min-height:54px; padding:15px 22px; border-radius:12px; font-family:'Libre Franklin',system-ui,sans-serif; font-weight:600; font-size:1.02rem; letter-spacing:.005em; text-transform:none; color:#0A1E2A; border:1px solid rgba(255,255,255,.3); box-shadow:0 12px 30px -8px rgba(201,162,75,.55); transition:transform .18s ease,box-shadow .18s ease; }
+    .offer2__cta:hover { transform:translateY(-1px); box-shadow:0 16px 36px -8px rgba(201,162,75,.65); }
+    .offer2__cta:focus-visible { outline:3px solid #fff; outline-offset:2px; }
+    .offer2__reassure { list-style:none; margin:1.2rem 0 0; padding:0; display:grid; gap:.55rem; }
+    .offer2__reassure li { position:relative; padding-left:1.5rem; font-size:.8rem; line-height:1.4; color:rgba(216,222,213,.64); }
+    .offer2__reassure li svg { position:absolute; left:0; top:.05em; width:1rem; height:1rem; color:rgba(216,196,138,.7); }
+    .offer2__hammer { position:absolute; right:clamp(16px,1.8vw,28px); top:clamp(16px,1.8vw,28px); width:24px; height:24px; color:rgba(216,196,138,.4); }
+
+    @media (max-width:768px){
+      .offer2__grid { grid-template-columns:1fr; }
+      .offer2__close { border-left:none; border-top:1px solid rgba(216,196,138,.18); }
+      .offer2__value { text-align:left; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+
+    <!-- ============ HERO (versão 1 · marinho/dourado) ============ -->
+    <div class="v1">
+      <header class="topbar">
+        <div class="container topbar__inner">
+          <a class="topbar__brand" href="#hero" aria-label="Imersão Casa Própria por Leilão">
+            <img class="topbar__evento" src="assets/logo-evento-hd.png" alt="Imersão Casa Própria por Leilão" width="1368" height="775" decoding="async">
+          </a>
+          <a class="topbar__cta cta cta--sm" href="#oferta"><span class="lbl-full">Quero participar · R$19</span><span class="lbl-short">Participar · R$19</span></a>
+        </div>
+      </header>
+
+      <section class="hero" id="hero">
+        <div class="hero__dots" aria-hidden="true"></div>
+        <div class="hero__grain" aria-hidden="true"></div>
+        <div class="hero__smoke" aria-hidden="true"></div>
+
+        <div class="hero__bids" aria-hidden="true">
+          <div class="hero__bids-col hero__bids-col--l">
+            <span class="bid bid--won">ARREMATADO</span>
+            <span class="bid">R$ 88.000</span><span class="bid">R$ 73.000</span><span class="bid">R$ 61.000</span>
+            <span class="bid">R$ 52.000</span><span class="bid">R$ 44.500</span><span class="bid">R$ 38.000</span>
+            <span class="bid bid--won">ARREMATADO</span>
+            <span class="bid">R$ 88.000</span><span class="bid">R$ 73.000</span><span class="bid">R$ 61.000</span>
+            <span class="bid">R$ 52.000</span><span class="bid">R$ 44.500</span><span class="bid">R$ 38.000</span>
+          </div>
+          <div class="hero__bids-col hero__bids-col--r">
+            <span class="bid bid--won">ARREMATADO</span>
+            <span class="bid">R$ 234.000</span><span class="bid">R$ 210.000</span><span class="bid">R$ 189.000</span>
+            <span class="bid">R$ 167.500</span><span class="bid">R$ 145.000</span><span class="bid">R$ 128.000</span><span class="bid">R$ 110.000</span>
+            <span class="bid bid--won">ARREMATADO</span>
+            <span class="bid">R$ 234.000</span><span class="bid">R$ 210.000</span><span class="bid">R$ 189.000</span>
+            <span class="bid">R$ 167.500</span><span class="bid">R$ 145.000</span><span class="bid">R$ 128.000</span><span class="bid">R$ 110.000</span>
+          </div>
+        </div>
+
+        <div class="hero__media hero__media--mobile">
+          <img src="assets/juliano-hero-v5.webp" alt="Juliano Carvalho, advogado por 17 anos e investidor em leilões de imóveis" width="769" height="687" fetchpriority="high" decoding="async">
+        </div>
+
+        <div class="hero__media hero__media--desktop" aria-hidden="true">
+          <img src="assets/juliano-hero-v5.webp" alt="" width="769" height="687" fetchpriority="high" decoding="async">
+        </div>
+
+        <div class="container">
+          <div class="hero__inner">
+            <h1>
+              <span class="short">E se a sua casa própria pudesse começar com uma <span class="grifo">entrada a partir de R$ 7 mil</span>, em vez de 30 anos de financiamento?</span>
+              <span class="long">E se a sua casa própria pudesse começar com uma <span class="grifo">entrada a partir de R$ 7 mil</span>, em vez de 30 anos de financiamento?</span>
+            </h1>
+
+            <p class="hero__sub">
+              <b>Sem ser advogado, sem ser rico e sem entender nada de leilão hoje.</b>
+              Nesta imersão você descobre, do zero, como pessoas comuns estão conquistando a casa própria pagando muito menos, usando os leilões da Caixa.
+            </p>
+
+            <div class="hero__actions">
+              <a href="#oferta" class="cta">Quero conquistar minha casa</a>
+              <p class="cta-note">Acesso à imersão por R$19 · vagas limitadas</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__wave" aria-hidden="true">
+          <svg viewBox="0 0 1440 100" preserveAspectRatio="none" role="presentation" focusable="false">
+            <path d="M0,58 C380,108 760,6 1080,40 C1268,60 1360,52 1440,46 L1440,101 L0,101 Z"/>
+          </svg>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ QUEBRA DE CRENÇA (o inimigo: financiamento) ============ -->
+    <section class="services-block steps-light" aria-labelledby="belief-title">
+      <div class="services-block__inner">
+        <div class="belief">
+          <p class="belief__kicker">A conta que ninguém te ensinou a questionar</p>
+          <h2 class="belief__title" id="belief-title">
+            Você aprendeu que só existe um caminho pra casa própria: <span class="accent">financiar por 30 anos.</span>
+          </h2>
+          <div class="belief__lines">
+            <p class="belief__line">Juros que fazem você pagar a casa duas, às vezes três vezes.</p>
+            <p class="belief__line">Uma parcela que aperta o orçamento todo santo mês.</p>
+            <p class="belief__line">E a sensação de que ela nunca vai ser 100% sua.</p>
+          </div>
+          <p class="belief__turn">
+            Só que existe <b>outro caminho</b>, e ele já é usado por gente comum, todos os dias.
+          </p>
+        </div>
+      </div>
+      <div class="wave wave--to-method" aria-hidden="true">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" role="presentation" focusable="false">
+          <path d="M0,46 C320,4 720,98 1080,58 C1268,38 1360,44 1440,52 L1440,101 L0,101 Z"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============ SEÇÃO 2 — MÉTODO (Scroll Float Cards) ============ -->
+    <section class="sfloat" aria-labelledby="method-title">
+      <div class="sfloat__wrap">
+        <div class="sfloat__intro">
+          <h2 class="sfloat__title" id="method-title">Enquanto uns financiam por 30 anos,<br><span class="sfloat__accent">outros arrematam pagando muito menos.</span></h2>
+          <p class="sfloat__desc">O leilão é só o mecanismo. Imóveis da Caixa e de bancos voltam ao mercado com desconto, alguns começando com entradas entre R$7 mil e R$10 mil. Não é sorte, nem coisa de rico: é saber o caminho.</p>
+        </div>
+
+        <div class="sfloat__grid">
+          <!-- Card 1: flutua p/ direita + inclina ao rolar -->
+          <div class="sfloat__card" data-sfloat-tx="4" data-sfloat-rz="0.3" data-sfloat-dir="1">
+            <div class="sfloat__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2.5"/>
+                <circle cx="24" cy="24" r="12" stroke="currentColor" stroke-width="2.5"/>
+                <circle cx="24" cy="24" r="4" fill="currentColor"/>
+                <line x1="44" y1="24" x2="36" y2="24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="12" y1="24" x2="4" y2="24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="24" y1="4" x2="24" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <line x1="24" y1="36" x2="24" y2="44" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="sfloat__card-title">Comece com pouco</h3>
+            <p class="sfloat__card-text">Imóveis da Caixa que podem começar com entradas entre R$7 mil e R$10 mil. O sonho começa sem você precisar de uma poupança gigante.</p>
+          </div>
+
+          <!-- Card 2 (central): entra com fadeInUp -->
+          <div class="sfloat__card sfloat__card--center" data-sfloat-fadein>
+            <div class="sfloat__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M24 14v10l6 4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="sfloat__card-title">Pague muito menos</h3>
+            <p class="sfloat__card-text">Arremate abaixo do valor de mercado. É a mesma casa, pelo preço que faz sentido pra sua vida, não pelo que o banco decidiu cobrar.</p>
+          </div>
+
+          <!-- Card 3: flutua p/ esquerda + inclina inverso ao rolar -->
+          <div class="sfloat__card" data-sfloat-tx="1.4" data-sfloat-rz="0.5" data-sfloat-dir="-1">
+            <div class="sfloat__icon">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="6" y="30" width="8" height="12" rx="2" stroke="currentColor" stroke-width="2.5"/>
+                <rect x="20" y="20" width="8" height="22" rx="2" stroke="currentColor" stroke-width="2.5"/>
+                <rect x="34" y="10" width="8" height="32" rx="2" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M10 20 L24 14 L38 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="sfloat__card-title">Sem 30 anos de banco</h3>
+            <p class="sfloat__card-text">Do primeiro lance até a chave na sua mão, com o caminho seguro de quem lê contrato a vida inteira te guiando.</p>
+          </div>
+        </div>
+      </div>
+      <div class="wave wave--to-quote" aria-hidden="true">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" role="presentation" focusable="false">
+          <path d="M0,52 C360,8 760,96 1100,54 C1280,32 1364,42 1440,48 L1440,101 L0,101 Z"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============ O QUE VOCÊ VAI SAIR SABENDO (benefícios ✔) ============ -->
+    <section class="quote-block quote-light" aria-labelledby="gains-title">
+      <div class="quote-block__inner">
+        <div class="gains">
+          <div class="gains__head">
+            <p class="gains__kicker">Em 2 dias, ao vivo</p>
+            <h2 class="gains__title" id="gains-title">Você sai sabendo <em>exatamente</em> como dar o primeiro passo rumo à sua casa.</h2>
+          </div>
+          <ul class="gains__list">
+            <li class="gains__item">
+              <span class="gains__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <p class="gains__text">Como <b>encontrar imóveis da Caixa</b> que podem começar com entradas entre R$7 mil e R$10 mil.</p>
+            </li>
+            <li class="gains__item">
+              <span class="gains__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <p class="gains__text">Como <b>descobrir se um imóvel vale a pena de verdade</b> antes de dar qualquer lance.</p>
+            </li>
+            <li class="gains__item">
+              <span class="gains__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <p class="gains__text">O <b>passo a passo completo</b>: da primeira análise até a casa ficar no seu nome.</p>
+            </li>
+            <li class="gains__item">
+              <span class="gains__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <p class="gains__text">Como <b>evitar os erros</b> que fazem tanta gente perder dinheiro em leilão.</p>
+            </li>
+            <li class="gains__item">
+              <span class="gains__check" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <p class="gains__text">Como conquistar seu imóvel <b>sem depender de 30 anos de financiamento.</b></p>
+            </li>
+          </ul>
+          <div class="gains__cta">
+            <a class="button button--offer" href="#oferta">Quero participar da Imersão</a>
+            <p class="cta-note">Acesso completo por R$19</p>
+          </div>
+        </div>
+      </div>
+      <div class="wave wave--to-offer" aria-hidden="true">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" role="presentation" focusable="false">
+          <path d="M0,50 C340,96 740,6 1090,50 C1278,74 1366,60 1440,52 L1440,101 L0,101 Z"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============ OFERTA ============ -->
+    <section class="section-dark offer-block" id="oferta" aria-labelledby="offer-title">
+      <div class="offer-block__inner">
+        <article class="offer2" aria-labelledby="offer-title">
+          <div class="offer2__grid">
+
+            <!-- VALOR: o que você leva -->
+            <div class="offer2__value">
+              <h2 class="offer2__title" id="offer-title">Sua primeira arrematação começa aqui.</h2>
+              <p class="offer2__lead">Dois dias, ao vivo, do <b>zero ao seu primeiro lance</b>, com o método de quem já arrematou mais de R$25 milhões.</p>
+              <ul class="offer2__list">
+                <li>
+                  <svg class="offer2__check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.3" opacity=".4"/><path d="M7 12.4l3.2 3.2L17 8.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Do <b>zero ao primeiro lance</b>, em 2 dias ao vivo</span>
+                </li>
+                <li>
+                  <svg class="offer2__check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.3" opacity=".4"/><path d="M7 12.4l3.2 3.2L17 8.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Como achar imóveis com <b>entradas de R$7 mil a R$10 mil</b></span>
+                </li>
+                <li>
+                  <svg class="offer2__check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.3" opacity=".4"/><path d="M7 12.4l3.2 3.2L17 8.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>O passo a passo até a <b>casa ficar no seu nome</b></span>
+                </li>
+                <li>
+                  <svg class="offer2__check" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.3" opacity=".4"/><path d="M7 12.4l3.2 3.2L17 8.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span>Os erros que fazem perder dinheiro e suas <b>dúvidas respondidas ao vivo</b></span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- FECHAMENTO: o lance -->
+            <aside class="offer2__close">
+              <svg class="offer2__hammer" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.5 5.5l4 4M12 8l4 4M4 20l6.5-6.5M13 3l8 8-2.5 2.5-8-8L13 3Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p class="offer2__close-label">Acesso completo · pagamento único</p>
+              <div class="offer2__price"><span class="offer2__price-cur">R$</span><span class="offer2__price-num">19</span></div>
+              <p class="offer2__anchor">Menos que um almoço, pela decisão que muda onde você vai morar.</p>
+              <a class="offer2__cta button--offer" href="#">Garantir minha vaga por R$19</a>
+              <ul class="offer2__reassure">
+                <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.6"/></svg>Pagamento seguro · Pix ou cartão</li>
+                <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 9h16M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Ao vivo nos dias 25 e 26 de julho</li>
+              </ul>
+            </aside>
+
+          </div>
+        </article>
+      </div>
+      <div class="wave wave--to-about" aria-hidden="true">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" role="presentation" focusable="false">
+          <path d="M0,58 C380,108 760,6 1080,40 C1268,60 1360,52 1440,46 L1440,101 L0,101 Z"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============ QUEM SOU (igual à página original / v1) ============ -->
+    <section class="v1 section section--paper about" id="quem-sou" aria-labelledby="about-title">
+      <div class="container">
+        <p class="about__kicker">Quem vai apresentar</p>
+
+        <header class="about__head">
+          <h2 class="about__title" id="about-title">O <em>especialista</em> por trás da <em>metodologia</em></h2>
+        </header>
+
+        <div class="about__grid">
+          <figure class="about__portrait reveal-media">
+            <img src="assets/juliano-mentor.jpg" alt="Retrato de Juliano Carvalho" width="496" height="606" loading="lazy" decoding="async">
+            <figcaption>Juliano Carvalho · Alphaville/SP</figcaption>
+          </figure>
+
+          <div class="about__body reveal-side">
+            <div class="about__narrative">
+              <p>Antes de ser investidor, fui advogado corporativo por mais de 17 anos. Meu trabalho era um só: ler o que estava escrito, enxergar o risco que ninguém via e proteger quem confiava em mim.</p>
+              <p>Foi aí que entendi uma coisa que mudou minha vida, <span class="grifo">o leilão não assusta quem sabe ler o que está no papel.</span> O que parece “perigoso” pra maioria, pra mim era território conhecido: edital, processo, letra miúda.</p>
+              <p>Comecei a aplicar isso por conta própria e, nos últimos anos, já arrematei <b>mais de R$25 milhões em imóveis</b>, alguns começando com entradas de R$7 mil a R$10 mil em leilões da Caixa. Não por sorte, nem por contato: por método.</p>
+            </div>
+
+            <div class="about__stats" aria-label="Trajetória em números">
+              <div class="about__stat">
+                <span class="about__stat-num">17</span>
+                <p class="about__stat-label">anos como advogado corporativo, lendo contratos e medindo risco</p>
+                <p class="about__stat-code">n.01</p>
+              </div>
+              <div class="about__stat">
+                <span class="about__stat-num">+R$25mi</span>
+                <p class="about__stat-label">arrematados em imóveis, por método, não por sorte</p>
+                <p class="about__stat-code">n.02</p>
+              </div>
+              <div class="about__stat about__stat--accent">
+                <span class="about__stat-num">R$7 mil</span>
+                <p class="about__stat-label">a entrada de arrematações que já fez em leilões da Caixa</p>
+                <p class="about__stat-code">n.03</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about__wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 100" preserveAspectRatio="none" role="presentation" focusable="false">
+          <path d="M0,50 C340,96 740,6 1090,50 C1278,74 1366,60 1440,52 L1440,101 L0,101 Z"/>
+        </svg>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ RODAPÉ (verificabilidade) ============ -->
+  <footer class="jc-footer">
+    <div class="jc-footer__inner">
+      <img class="jc-footer__logo" src="assets/logo-evento-hd.png" alt="Imersão Casa Própria por Leilão" width="1368" height="775" loading="lazy" decoding="async">
+      <span class="jc-footer__rule" aria-hidden="true"></span>
+      <div class="jc-footer__legal">
+        <span>© 2026 Juliano Carvalho · Todos os direitos reservados</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/editorial/motion.js"></script>
+  <script>
+  /* SEÇÃO 2 · Scroll Float Cards
+     - Cards das pontas: parallax de scroll (translateX + rotateZ conforme a
+       posição na viewport). Desativado em telas <= 768px.
+     - Card central: fadeInUp via IntersectionObserver (anima 1×). */
+  (function () {
+    'use strict';
+
+    /* 1. fadeInUp no card central */
+    var fadeCards = document.querySelectorAll('.sfloat__card[data-sfloat-fadein]');
+    if (fadeCards.length && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('sfloat--visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      fadeCards.forEach(function (card) { observer.observe(card); });
+    } else {
+      fadeCards.forEach(function (card) { card.classList.add('sfloat--visible'); });
+    }
+
+    /* 2. Parallax nos cards das pontas */
+    var floatCards = document.querySelectorAll('.sfloat__card[data-sfloat-tx]');
+    if (!floatCards.length) return;
+
+    function isMobile() { return window.innerWidth <= 768; }
+
+    function updateParallax() {
+      if (isMobile()) {
+        floatCards.forEach(function (card) { card.style.transform = ''; });
+        return;
+      }
+      var vh = window.innerHeight;
+      floatCards.forEach(function (card) {
+        var rect = card.getBoundingClientRect();
+        var center = rect.top + rect.height / 2;
+        var progress = (vh / 2 - center) / vh;
+        var tx = parseFloat(card.dataset.sfloatTx) || 0;
+        var rz = parseFloat(card.dataset.sfloatRz) || 0;
+        var dir = parseFloat(card.dataset.sfloatDir) || 1;
+        var txPx = -dir * tx * progress * 80;   // de dentro para fora (abre)
+        var rzDeg = -dir * rz * progress * 10;
+        card.style.transform =
+          'translateX(' + txPx.toFixed(2) + 'px) rotateZ(' + rzDeg.toFixed(3) + 'deg)';
+      });
+    }
+
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    window.addEventListener('resize', updateParallax, { passive: true });
+    updateParallax();
+  })();
+  </script>
+
+  <!-- ============ POPUP DE LEAD (clique em CTA + exit-intent) — portado da v2 ============ -->
+  <style id="lpz-css">
+    .lpz-overlay{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:16px;overflow-y:auto;}
+    .lpz-overlay.is-open{display:flex;}
+    .lpz-backdrop{position:absolute;inset:0;background:rgba(6,18,26,.72);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:0;cursor:default;animation:lpzFade .18s ease;}
+    .lpz-modal{position:relative;width:100%;max-width:468px;margin:auto;background:linear-gradient(180deg,#123E4B,#0E2F3A);color:#ECE7DD;border:1px solid rgba(216,196,138,.26);border-radius:20px;overflow:hidden;box-shadow:0 30px 70px -20px rgba(0,0,0,.7);animation:lpzPop .24s cubic-bezier(.2,.75,.25,1);}
+    .lpz-modal::before{content:"";position:absolute;inset-inline:0;top:0;height:1px;background:linear-gradient(90deg,transparent,#D8C48A,transparent);z-index:2;}
+    .lpz-glow{position:absolute;left:50%;top:-42px;width:300px;height:150px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(216,196,138,.18),transparent 72%);pointer-events:none;filter:blur(22px);}
+    .lpz-close{position:absolute;right:14px;top:14px;z-index:3;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:0;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);cursor:pointer;transition:background .18s,color .18s;}
+    .lpz-close:hover{background:rgba(255,255,255,.2);color:#fff;}
+    .lpz-body{position:relative;z-index:1;padding:38px 24px 26px;}
+    @media(min-width:480px){.lpz-body{padding:42px 34px 30px;}}
+    .lpz-title{margin:0 auto;max-width:24ch;text-align:center;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.42rem;line-height:1.18;color:#fff;}
+    .lpz-title span{color:#D8C48A;}
+    .lpz-sub{margin:12px auto 0;max-width:36ch;text-align:center;font-size:.9rem;line-height:1.55;color:rgba(236,231,221,.66);}
+    .lpz-form{margin-top:22px;display:grid;gap:12px;}
+    .lpz-field{display:block;}
+    .lpz-label{display:block;margin-bottom:6px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(236,231,221,.55);}
+    .lpz-input{width:100%;padding:12px 15px;font-size:15px;color:#fff;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:10px;outline:none;transition:border-color .18s,background .18s;}
+    .lpz-input::placeholder{color:rgba(255,255,255,.28);}
+    .lpz-input:focus{background:rgba(255,255,255,.08);border-color:rgba(216,196,138,.55);}
+    .lpz-input.is-error{border-color:#E5646B;}
+    .lpz-err{display:block;margin-top:4px;font-size:11px;color:#FF8A6B;}
+    .lpz-submit{margin-top:8px;width:100%;padding:14px 20px;font-family:inherit;font-size:15px;font-weight:700;color:#0E2F3A;background:linear-gradient(135deg,#E4D29A,#C9A24B 55%,#B68E39);border:0;border-radius:999px;cursor:pointer;transition:filter .18s,transform .18s;}
+    .lpz-submit:hover{filter:brightness(1.05);transform:translateY(-1px);}
+    .lpz-submit:disabled{opacity:.6;cursor:not-allowed;}
+    .lpz-note{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;text-align:center;font-size:11px;line-height:1.5;color:rgba(236,231,221,.42);}
+    @keyframes lpzFade{from{opacity:0}to{opacity:1}}
+    @keyframes lpzPop{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+    @media(prefers-reduced-motion:reduce){.lpz-modal,.lpz-backdrop{animation:none}}
+  </style>
+  <div class="lpz-overlay" id="lpz" aria-hidden="true">
+    <button type="button" class="lpz-backdrop" data-lpz-close aria-label="Fechar"></button>
+    <div class="lpz-modal" role="dialog" aria-modal="true" aria-labelledby="lpz-title">
+      <span class="lpz-glow" aria-hidden="true"></span>
+      <button type="button" class="lpz-close" data-lpz-close aria-label="Fechar">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 3l10 10M13 3L3 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+      <div class="lpz-body">
+        <h3 class="lpz-title" id="lpz-title">Garanta sua vaga na Imersão <span>por apenas R$19.</span></h3>
+        <p class="lpz-sub">Deixe seu contato e vá direto pro checkout garantir seu acesso aos 2 dias, 25 e 26 de julho, online e ao vivo.</p>
+        <form class="lpz-form" id="lpz-form" novalidate>
+          <label class="lpz-field"><span class="lpz-label">Nome completo</span>
+            <input class="lpz-input" name="nome" type="text" autocomplete="name" placeholder="Como você se chama">
+            <span class="lpz-err" data-err="nome"></span></label>
+          <label class="lpz-field"><span class="lpz-label">WhatsApp</span>
+            <input class="lpz-input" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000" maxlength="16">
+            <span class="lpz-err" data-err="telefone"></span></label>
+          <label class="lpz-field"><span class="lpz-label">E-mail</span>
+            <input class="lpz-input" name="email" type="email" inputmode="email" autocomplete="email" placeholder="voce@exemplo.com">
+            <span class="lpz-err" data-err="email"></span></label>
+          <button type="submit" class="lpz-submit">Continuar para o checkout</button>
+          <p class="lpz-note">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 10V8a6 6 0 1 1 12 0v2M5 10h14v10H5z" stroke="#D8C48A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Seus dados estão seguros. Em seguida você vai para o pagamento.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script id="lpz-js">
+  (function(){
+    var CHECKOUT_URL = ''; // TODO: URL real do checkout (Hotmart/Kiwify). Vazio = rola pra #oferta.
+    var MAX = 3, ARM_MS = 10000, COOLDOWN_MS = 30000, MOBILE_THRESH = 60;
+    var overlay = document.getElementById('lpz');
+    var form = document.getElementById('lpz-form');
+    if(!overlay || !form) return;
+    var armed = false, lastTrigger = 0, lastY = window.scrollY;
+    function count(){ return +(sessionStorage.getItem('lpzCount')||0); }
+    function open(force){
+      if(overlay.classList.contains('is-open')) return;
+      if(!force && count() >= MAX) return;            // exit-intent respeita o limite; clique em CTA (force) sempre abre
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+      if(!force) sessionStorage.setItem('lpzCount', count()+1);
+      setTimeout(function(){ var i=form.querySelector('input'); if(i) i.focus(); },100);
+    }
+    function close(){ overlay.classList.remove('is-open'); overlay.setAttribute('aria-hidden','true'); document.body.style.overflow=''; }
+    function fire(){ if(!armed) return; var now=Date.now(); if(now-lastTrigger<COOLDOWN_MS) return; lastTrigger=now; open(false); }
+    setTimeout(function(){ armed = true; }, ARM_MS);
+    // EXIT-INTENT desktop (mouse sai pelo topo) + mobile (scroll pra cima rápido no topo)
+    document.addEventListener('mouseleave', function(e){ if(e.clientY <= 0) fire(); });
+    window.addEventListener('scroll', function(){ var y=window.scrollY, d=y-lastY; lastY=y; if(y<200 && d<-MOBILE_THRESH) fire(); }, {passive:true});
+    // TRIGGER POR CTA: só o CTA do card de oferta abre o popup (força, ignora o limite).
+    // Os demais CTAs (href="#oferta") apenas rolam até a oferta — comportamento nativo.
+    document.querySelectorAll('.offer2__cta, [data-lpz-open]').forEach(function(btn){
+      if(btn.closest('#lpz')) return;
+      btn.addEventListener('click', function(e){ e.preventDefault(); open(true); });
+    });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && overlay.classList.contains('is-open')) close(); });
+    overlay.querySelectorAll('[data-lpz-close]').forEach(function(b){ b.addEventListener('click', close); });
+    function digits(s){ return (s||'').replace(/\D/g,''); }
+    function maskPhone(s){ var d=digits(s).slice(0,11); if(d.length<3)return d; if(d.length<8)return '('+d.slice(0,2)+') '+d.slice(2); if(d.length<=10)return '('+d.slice(0,2)+') '+d.slice(2,6)+'-'+d.slice(6); return '('+d.slice(0,2)+') '+d.slice(2,7)+'-'+d.slice(7); }
+    var tel = form.querySelector('[name=telefone]');
+    tel.addEventListener('input', function(){ tel.value = maskPhone(tel.value); });
+    function setErr(name,msg){ var f=form.querySelector('[name='+name+']'); var e=form.querySelector('[data-err='+name+']'); if(msg){f.classList.add('is-error'); e.textContent=msg;} else {f.classList.remove('is-error'); e.textContent='';} }
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var nome=form.nome.value.trim(), email=form.email.value.trim(), tele=digits(form.telefone.value), ok=true;
+      if(nome.length<3){ setErr('nome','Digite seu nome completo.'); ok=false;} else setErr('nome');
+      if(tele.length!==10 && tele.length!==11){ setErr('telefone','Digite um WhatsApp com DDD.'); ok=false;} else setErr('telefone');
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){ setErr('email','Digite um e-mail válido.'); ok=false;} else setErr('email');
+      if(!ok) return;
+      // TODO: enviar lead pro webhook/pixel antes de converter.
+      close();
+      if(CHECKOUT_URL){ window.location.href = CHECKOUT_URL; return; }
+      var alvo = document.getElementById('oferta') || document.querySelector('.offer-block');
+      if(alvo) alvo.scrollIntoView({behavior:'smooth'});
+    });
+  })();
+  </script>
+
+</body>
+</html>
