@@ -29,6 +29,32 @@
   // Seletores dos CTAs que devem abrir o popup.
   var CTA_SELECTOR = 'a.cta, a.button--offer, [data-lead-popup]';
 
+  // ---------- Rastreio de campanha (UTMs) ----------
+  // Captura na 1ª visita, persiste na sessão e anexa ao checkout no submit,
+  // pra não perder a atribuição do anúncio.
+  var TRACK_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','gclid','gbraid','wbraid','fbclid','ttclid','msclkid','src','sck','xcod','ref'];
+  var TRACK_STORE = 'lpzTracking';
+  function getTracking() {
+    var data = {};
+    try { data = JSON.parse(sessionStorage.getItem(TRACK_STORE) || '{}'); } catch (e) {}
+    try {
+      var sp = new URLSearchParams(window.location.search);
+      TRACK_KEYS.forEach(function (k) { var v = sp.get(k); if (v) data[k] = v; }); // URL atual tem prioridade
+    } catch (e) {}
+    try { sessionStorage.setItem(TRACK_STORE, JSON.stringify(data)); } catch (e) {}
+    return data;
+  }
+  function withTracking(url) {
+    var t = getTracking(), keys = Object.keys(t);
+    if (!keys.length) return url;
+    var hash = '', base = url, hi = url.indexOf('#');
+    if (hi > -1) { hash = url.slice(hi); base = url.slice(0, hi); } // preserva o #hash do checkout
+    var sep = base.indexOf('?') > -1 ? '&' : '?';
+    var qs = keys.map(function (k) { return encodeURIComponent(k) + '=' + encodeURIComponent(t[k]); }).join('&');
+    return base + sep + qs + hash;
+  }
+  getTracking(); // grava as UTMs logo no load, antes de qualquer conversão
+
   // ---------- Conteúdo ----------
   var COPY = {
     titulo: 'Sua vaga na Imersão está a um passo.',
@@ -256,7 +282,7 @@
       ]);
       race.then(function () {
         if (CHECKOUT_URL) {
-          window.location.href = CHECKOUT_URL;
+          window.location.href = withTracking(CHECKOUT_URL);
         } else {
           // Sem checkout configurado ainda: confirma inline.
           viewForm.hidden = true;

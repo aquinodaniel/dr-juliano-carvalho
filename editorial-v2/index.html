@@ -792,7 +792,32 @@
   </div>
   <script id="lpz-js">
   (function(){
-    var CHECKOUT_URL = ''; // TODO: URL real do checkout (Hotmart/Kiwify). Vazio = rola pra #oferta.
+    // ===== Rastreio de campanha (UTMs) — captura na 1ª visita, persiste na sessão
+    //       e anexa ao checkout no submit, pra não perder a atribuição do anúncio.
+    var TRACK_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_id','gclid','gbraid','wbraid','fbclid','ttclid','msclkid','src','sck','xcod','ref'];
+    var TRACK_STORE = 'lpzTracking';
+    function getTracking(){
+      var data = {};
+      try { data = JSON.parse(sessionStorage.getItem(TRACK_STORE) || '{}'); } catch(e){}
+      try {
+        var sp = new URLSearchParams(window.location.search);
+        TRACK_KEYS.forEach(function(k){ var v = sp.get(k); if(v) data[k] = v; }); // URL atual tem prioridade
+      } catch(e){}
+      try { sessionStorage.setItem(TRACK_STORE, JSON.stringify(data)); } catch(e){}
+      return data;
+    }
+    function withTracking(url){
+      var t = getTracking(), keys = Object.keys(t);
+      if(!keys.length) return url;
+      var hash = '', base = url, hi = url.indexOf('#');
+      if(hi > -1){ hash = url.slice(hi); base = url.slice(0, hi); } // preserva o #hash do checkout
+      var sep = base.indexOf('?') > -1 ? '&' : '?';
+      var qs = keys.map(function(k){ return encodeURIComponent(k)+'='+encodeURIComponent(t[k]); }).join('&');
+      return base + sep + qs + hash;
+    }
+    getTracking(); // grava as UTMs logo no load, antes de qualquer conversão
+
+    var CHECKOUT_URL = ''; // TODO: URL real do checkout (Hotmart/Kiwify). Vazio = rola pra #oferta. As UTMs são anexadas automaticamente via withTracking().
     var MAX = 3, ARM_MS = 10000, COOLDOWN_MS = 30000, MOBILE_THRESH = 60;
     var overlay = document.getElementById('lpz');
     var form = document.getElementById('lpz-form');
@@ -827,7 +852,7 @@
       if(!ok) return;
       // TODO: enviar lead pro webhook/pixel antes de converter.
       close();
-      if(CHECKOUT_URL){ window.location.href = CHECKOUT_URL; return; }
+      if(CHECKOUT_URL){ window.location.href = withTracking(CHECKOUT_URL); return; }
       var alvo = document.getElementById('oferta') || document.querySelector('.offer-block');
       if(alvo) alvo.scrollIntoView({behavior:'smooth'});
     });
