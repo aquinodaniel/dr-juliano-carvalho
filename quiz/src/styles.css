@@ -1,0 +1,277 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ============================================================
+ * QUIZ "O PREGÃO" — Primeira Arrematação (Juliano Carvalho)
+ * Identidade herdada da LP oficial: teal profundo + dourado,
+ * tipografia editorial (Fraunces) + mono de leilão (IBM Plex).
+ * Todas as cores em oklch. Superfícies escuras que "sobem" do
+ * fundo, dourado forte reservado ao ponto mais quente (CTA/seleção).
+ * ============================================================
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  /* Acentos de leilão */
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-olive: var(--olive);
+  --color-ok: var(--ok);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Famílias tipográficas */
+  --font-sans: "Libre Franklin", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+:root {
+  --radius: 0.9rem;
+
+  /* Superfícies — teal profundo, cards sobem do fundo */
+  --background: oklch(0.340 0.052 221.2);         /* teal-900 #123E4B */
+  --foreground: oklch(0.929 0.014 84.6);          /* off-white #ECE7DD */
+  --card: oklch(0.390 0.058 221.2);               /* teal-700 #1A4C5B */
+  --card-foreground: oklch(0.929 0.014 84.6);
+  --popover: oklch(0.438 0.069 223.7);            /* petróleo #1D5A6E */
+  --popover-foreground: oklch(0.929 0.014 84.6);
+
+  /* Dourado forte — reservado ao ponto mais quente */
+  --primary: oklch(0.731 0.115 85.0);             /* dourado forte #C9A24B */
+  --primary-foreground: oklch(0.201 0.014 243.6); /* tinta #11171C */
+
+  /* Dourado suave — grifos, acentos secundários */
+  --secondary: oklch(0.823 0.079 91.2);           /* dourado suave #D8C48A */
+  --secondary-foreground: oklch(0.201 0.014 243.6);
+
+  --muted: oklch(0.420 0.050 222);
+  --muted-foreground: oklch(0.760 0.028 96);      /* off-white esmaecido */
+  --accent: oklch(0.438 0.069 223.7);
+  --accent-foreground: oklch(0.929 0.014 84.6);
+
+  --destructive: oklch(0.588 0.140 26.5);         /* vermelho dor #C2564E */
+  --destructive-foreground: oklch(0.960 0.010 60);
+
+  --border: oklch(0.470 0.045 222);               /* borda teal sutil */
+  --input: oklch(0.430 0.050 222);
+  --ring: oklch(0.731 0.115 85.0);                /* foco dourado */
+
+  /* Acentos nomeados de leilão */
+  --gold: oklch(0.731 0.115 85.0);
+  --gold-soft: oklch(0.823 0.079 91.2);
+  --olive: oklch(0.537 0.051 117.6);              /* oliva #6B7250 */
+  --ok: oklch(0.657 0.093 142.6);                 /* verde #6FA06B */
+
+  --chart-1: oklch(0.731 0.115 85.0);
+  --chart-2: oklch(0.657 0.093 142.6);
+  --chart-3: oklch(0.588 0.140 26.5);
+  --chart-4: oklch(0.823 0.079 91.2);
+  --chart-5: oklch(0.537 0.051 117.6);
+
+  --sidebar: oklch(0.340 0.052 221.2);
+  --sidebar-foreground: oklch(0.929 0.014 84.6);
+  --sidebar-primary: oklch(0.731 0.115 85.0);
+  --sidebar-primary-foreground: oklch(0.201 0.014 243.6);
+  --sidebar-accent: oklch(0.438 0.069 223.7);
+  --sidebar-accent-foreground: oklch(0.929 0.014 84.6);
+  --sidebar-border: oklch(0.470 0.045 222);
+  --sidebar-ring: oklch(0.731 0.115 85.0);
+}
+
+/* O quiz é dark por natureza; .dark espelha :root p/ compat shadcn */
+.dark {
+  --background: oklch(0.310 0.048 221.2);
+  --foreground: oklch(0.929 0.014 84.6);
+  --card: oklch(0.375 0.056 221.2);
+  --card-foreground: oklch(0.929 0.014 84.6);
+  --popover: oklch(0.420 0.066 223.7);
+  --popover-foreground: oklch(0.929 0.014 84.6);
+  --primary: oklch(0.731 0.115 85.0);
+  --primary-foreground: oklch(0.201 0.014 243.6);
+  --secondary: oklch(0.823 0.079 91.2);
+  --secondary-foreground: oklch(0.201 0.014 243.6);
+  --muted: oklch(0.410 0.050 222);
+  --muted-foreground: oklch(0.760 0.028 96);
+  --accent: oklch(0.420 0.066 223.7);
+  --accent-foreground: oklch(0.929 0.014 84.6);
+  --destructive: oklch(0.588 0.140 26.5);
+  --destructive-foreground: oklch(0.960 0.010 60);
+  --border: oklch(0.460 0.045 222);
+  --input: oklch(0.420 0.050 222);
+  --ring: oklch(0.731 0.115 85.0);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Fraunces nos títulos com ótica display */
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* ============================================================
+   PROFUNDIDADE — brilho radial, grão, vinheta (a "atmosfera")
+   ============================================================ */
+@layer components {
+  /* Fundo atmosférico: brilho dourado no topo + vinheta na base.
+     Aplicado num wrapper; os pseudo-elementos ficam atrás (-z). */
+  .pregao-atmos::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    pointer-events: none;
+    background:
+      radial-gradient(120% 60% at 50% -8%, oklch(0.731 0.115 85 / 0.16), transparent 60%),
+      radial-gradient(90% 50% at 50% 108%, oklch(0.310 0.048 221 / 0.6), transparent 70%);
+  }
+
+  /* Grão sutil (~4%) via turbulência SVG, em overlay global */
+  .pregao-atmos::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -9;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Etiqueta paddle de leilão — LOTE 07 / 24 */
+  .paddle {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-gold-soft);
+  }
+
+  /* Grifo dourado suave (marca-texto) nos títulos */
+  .mark-gold {
+    color: var(--color-gold-soft);
+  }
+
+  /* Cartão com leve elevação e brilho superior de leilão */
+  .lot-card {
+    position: relative;
+    background: linear-gradient(180deg, oklch(0.438 0.069 223.7 / 0.55), oklch(0.390 0.058 221.2 / 0.35));
+    border: 1px solid var(--color-border);
+    box-shadow: 0 1px 0 oklch(1 0 0 / 0.04) inset, 0 20px 50px -28px oklch(0.15 0.02 240 / 0.9);
+  }
+}
+
+/* ============================================================
+   MOVIMENTO — entrada de tela, cascata de opções, seleção
+   ============================================================ */
+@layer utilities {
+  @keyframes screenIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes optIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes goldPulse {
+    0%, 100% { box-shadow: 0 0 0 0 oklch(0.731 0.115 85 / 0.0); }
+    50%      { box-shadow: 0 0 0 4px oklch(0.731 0.115 85 / 0.18); }
+  }
+  @keyframes houseBlink {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+  @keyframes stampIn {
+    0%   { opacity: 0; transform: rotate(-12deg) scale(1.6); }
+    60%  { opacity: 1; }
+    100% { opacity: 1; transform: rotate(-8deg) scale(1); }
+  }
+  @keyframes sheenMove {
+    from { transform: translateX(-120%); }
+    to   { transform: translateX(220%); }
+  }
+
+  .anim-screen-in { animation: screenIn 0.42s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .anim-opt-in    { animation: optIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .anim-stamp     { animation: stampIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .anim-selected  { animation: goldPulse 0.5s ease-out; }
+
+  /* Brilho que percorre o CTA (herdado do ctaSheen da LP) */
+  .cta-sheen { position: relative; overflow: hidden; }
+  .cta-sheen::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 40%; height: 100%;
+    background: linear-gradient(100deg, transparent, oklch(1 0 0 / 0.35), transparent);
+    transform: translateX(-120%);
+    animation: sheenMove 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim-screen-in, .anim-opt-in, .anim-stamp, .anim-selected, .cta-sheen::after {
+      animation: none !important;
+    }
+    .anim-screen-in, .anim-opt-in { opacity: 1; transform: none; }
+  }
+}

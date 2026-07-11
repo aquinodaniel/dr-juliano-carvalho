@@ -1,0 +1,1 @@
+ALTER TABLE public.quiz_sessions ADD COLUMN IF NOT EXISTS variant TEXT; CREATE INDEX IF NOT EXISTS idx_quiz_sessions_variant ON public.quiz_sessions(variant);

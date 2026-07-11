@@ -1,0 +1,1 @@
+ALTER TABLE public.quiz_events ADD COLUMN pet_name TEXT;
